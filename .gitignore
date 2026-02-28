@@ -1,0 +1,22 @@
+# Credentials — never commit the API key
+.env
+
+# Planning docs — not part of the agent submission
+docs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Test/run artifacts
+logs/
+*.log
+
+# Virtual environments
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
