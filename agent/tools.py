@@ -14,7 +14,12 @@ def make_tools(environment: BaseEnvironment) -> list:
         Run a shell command in the Docker container. Returns stdout+stderr and exit code.
         compared to last version, added the exit code on top of stdout and err
         """
-        result = await environment.exec(command, timeout_sec=120)
+        try:
+            result = await environment.exec(command, timeout_sec=300)
+        except RuntimeError as e:
+            # harbor raises RuntimeError when the command exceeds timeout_sec;
+            # return an error string so the agent can adapt instead of crashing the trial
+            return f"[error] command timed out: {e}"
         output = ""
         if result.stdout:
             output += result.stdout
