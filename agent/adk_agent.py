@@ -15,6 +15,7 @@ _SYSTEM_PROMPT = (
     "- Write output files to EXACTLY the paths specified in the task\n"
     "- The tests check the final state of the filesystem, not your process\n"
     "- You have internet access and can install packages with apt-get or pip\n"
+    "- After verifying compiled code works, remove any build artifacts (binaries, .o files) unless the task asks you to keep them\n"
     "- When you are confident the task is complete, stop calling tools"
 )
 
