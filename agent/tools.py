@@ -1,12 +1,14 @@
+import base64
 import os
 import tempfile
 
+import litellm
 from harbor.environments.base import BaseEnvironment
 
 _TRUNCATE_CHARS = 8000
 
 
-def make_tools(environment: BaseEnvironment) -> list:
+def make_tools(environment: BaseEnvironment, api_key: str, model: str) -> list:
     #call this to get a list of tools usable by agent
 
     async def run_bash(command: str) -> str:
@@ -46,7 +48,57 @@ def make_tools(environment: BaseEnvironment) -> list:
         except Exception as e:
             return f"[error] {e}"
         finally:
-            os.unlink(tmp_path) 
+            os.unlink(tmp_path)
             #remove temp file, we opened with delete=false to have time for upload
 
-    return [run_bash, write_file]
+    async def read_file(path: str) -> str:
+        """
+        Read a file from the Docker container and return its contents.
+        Uses download_file to copy from container to host — avoids shell output
+        truncation that affects run_bash when files are large.
+        """
+        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".tmp") as f:
+            tmp_path = f.name
+        try:
+            await environment.download_file(path, tmp_path)
+            with open(tmp_path, "r", errors="replace") as f:
+                content = f.read()
+            if len(content) > _TRUNCATE_CHARS:
+                content = f"[truncated, showing first {_TRUNCATE_CHARS} chars]\n" + content[:_TRUNCATE_CHARS]
+            return content
+        except Exception as e:
+            return f"[error] {e}"
+        finally:
+            os.unlink(tmp_path)
+
+    async def read_image(path: str, prompt: str) -> str:
+        """
+        Read an image file from the Docker container and use a vision model to interpret it.
+        Useful for understanding visual output such as plots, rendered text, or diagrams.
+        Returns the model's description of the image contents.
+        """
+        with tempfile.NamedTemporaryFile(mode="wb", delete=False, suffix=".png") as f:
+            tmp_path = f.name
+        try:
+            await environment.download_file(path, tmp_path)
+            with open(tmp_path, "rb") as f:
+                img_b64 = base64.standard_b64encode(f.read()).decode("utf-8")
+            response = await litellm.acompletion(
+                model=model,
+                api_key=api_key,
+                api_base="https://openrouter.ai/api/v1",
+                messages=[{
+                    "role": "user",
+                    "content": [
+                        {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{img_b64}"}},
+                        {"type": "text", "text": prompt},
+                    ],
+                }],
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            return f"[error] {e}"
+        finally:
+            os.unlink(tmp_path)
+
+    return [run_bash, write_file, read_file, read_image]

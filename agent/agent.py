@@ -36,7 +36,7 @@ class AdkAgent(BaseAgent):
         # self.model_name lets the --model CLI flag override the default
         model = self.model_name or "openrouter/anthropic/claude-opus-4-6"
 
-        tools = make_tools(environment)
+        tools = make_tools(environment, api_key=api_key, model=model)
         adk_agent = build_agent(model=model, api_key=api_key, tools=tools)
 
         session_service = InMemorySessionService()
