@@ -1,0 +1,33 @@
+{
+    "id": "ceba35ff-f56b-47c8-9e11-e28e36262028",
+    "started_at": "2026-03-03T11:36:10.190167",
+    "finished_at": "2026-03-03T12:08:43.325946",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 0,
+        "evals": {
+            "adk_agent__terminal-bench": {
+                "n_trials": 5,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "mteb-retrieve__pjumedo",
+                            "mteb-retrieve__p6WCvFU",
+                            "mteb-retrieve__862RY5t",
+                            "mteb-retrieve__vf9Amr8",
+                            "mteb-retrieve__8nBpu62"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}
