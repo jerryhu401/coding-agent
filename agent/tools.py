@@ -76,6 +76,8 @@ def make_tools(environment: BaseEnvironment, api_key: str, model: str) -> list:
         Read an image file from the Docker container and use a vision model to interpret it.
         Useful for understanding visual output such as plots, rendered text, or diagrams.
         Returns the model's description of the image contents.
+        Here we know we are using claude so it has vision capabilities,
+        but we can use a different model here in other use cases
         """
         with tempfile.NamedTemporaryFile(mode="wb", delete=False, suffix=".png") as f:
             tmp_path = f.name

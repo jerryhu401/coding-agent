@@ -1,4 +1,6 @@
+import json
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from google.adk.runners import Runner
@@ -11,6 +13,24 @@ from harbor.models.agent.context import AgentContext
 
 from agent.adk_agent import build_agent
 from agent.tools import make_tools
+
+
+def _log_event(log_file, event) -> None:
+    """Append a single ADK event as a JSON line to the trajectory log."""
+    entry = {"author": event.author}
+    if event.content and event.content.parts:
+        parts = []
+        for part in event.content.parts:
+            if part.text:
+                parts.append({"text": part.text})
+            elif part.function_call:
+                parts.append({"tool_call": {"name": part.function_call.name, "args": dict(part.function_call.args)}})
+            elif part.function_response:
+                resp = part.function_response.response
+                parts.append({"tool_response": {"name": part.function_response.name, "output": str(resp)}})
+        entry["parts"] = parts
+    log_file.write(json.dumps(entry) + "\n")
+    log_file.flush()
 
 
 class AdkAgent(BaseAgent):
@@ -55,11 +75,16 @@ class AdkAgent(BaseAgent):
             parts=[genai_types.Part(text=instruction)],
         )
 
-        # runner.run_async drives the ReAct loop; we break on the final response
-        async for event in runner.run_async(
-            user_id="user",
-            session_id="session",
-            new_message=content,
-        ):
-            if event.is_final_response():
-                break
+        # Open trajectory log in the harbor agent/ directory
+        log_path = Path(self.logs_dir) / "trajectory.jsonl"
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(log_path, "w") as log_file:
+            # runner.run_async drives the ReAct loop; we break on the final response
+            async for event in runner.run_async(
+                user_id="user",
+                session_id="session",
+                new_message=content,
+            ):
+                _log_event(log_file, event)
+                if event.is_final_response():
+                    break
