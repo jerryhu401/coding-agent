@@ -1,0 +1,136 @@
+Traceback (most recent call last):
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py", line 61, in map_aiohttp_exceptions
+    yield
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py", line 297, in handle_async_request
+    response = await self._make_aiohttp_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py", line 275, in _make_aiohttp_request
+    response = await client_session.request(**request_kwargs).__aenter__()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/aiohttp/client.py", line 1510, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/aiohttp/client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/aiohttp/client.py", line 757, in _connect_and_send_request
+    await resp.start(conn)
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/aiohttp/client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/aiohttp/streams.py", line 703, in read
+    await self._waiter
+aiohttp.client_exceptions.SocketTimeoutError: Timeout on reading data from socket
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 466, in post
+    response = await self.client.send(req, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py", line 296, in handle_async_request
+    with map_aiohttp_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py", line 75, in map_aiohttp_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: Timeout on reading data from socket
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/llm_http_handler.py", line 175, in _make_common_async_call
+    response = await async_httpx_client.post(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/litellm_core_utils/logging_utils.py", line 297, in async_wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/http_handler.py", line 495, in post
+    raise litellm.Timeout(
+litellm.exceptions.Timeout: litellm.Timeout: Connection timed out. Timeout passed=600.0, time taken=637.606 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/main.py", line 613, in acompletion
+    response = await init_response
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/llm_http_handler.py", line 307, in async_completion
+    response = await self._make_common_async_call(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/llm_http_handler.py", line 202, in _make_common_async_call
+    raise self._handle_error(e=e, provider_config=provider_config)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/llms/custom_httpx/llm_http_handler.py", line 4645, in _handle_error
+    raise provider_config.get_error_class(
+litellm.llms.openrouter.common_utils.OpenRouterException: litellm.Timeout: Connection timed out. Timeout passed=600.0, time taken=637.606 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/harbor/trial/trial.py", line 483, in run
+    await self._execute_agent()
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/harbor/trial/trial.py", line 259, in _execute_agent
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/Users/19498/OneDrive/Desktop/Agent Challenge/agent/agent.py", line 83, in run
+    async for event in runner.run_async(
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/runners.py", line 565, in run_async
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/runners.py", line 550, in _run_with_trace
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/runners.py", line 539, in execute
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/agents/llm_agent.py", line 470, in _run_async_impl
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 752, in run_async
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 829, in _run_one_step_async
+    async for llm_response in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 1186, in _call_llm_async
+    async for event in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 1169, in _call_llm_with_tracing
+    async for llm_response in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 1245, in _run_and_handle_error
+    async for response in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 389, in _run_and_handle_error
+    raise model_error
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 374, in _run_and_handle_error
+    async for llm_response in agen:
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/models/lite_llm.py", line 2148, in generate_content_async
+    response = await self.llm_client.acompletion(**completion_args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/google/adk/models/lite_llm.py", line 444, in acompletion
+    return await acompletion(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/utils.py", line 2041, in wrapper_async
+    raise e
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/utils.py", line 1862, in wrapper_async
+    result = await original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/main.py", line 632, in acompletion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2398, in exception_type
+    raise e
+  File "/home/jerryhu401/.local/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2287, in exception_type
+    raise Timeout(
+litellm.exceptions.Timeout: litellm.Timeout: Timeout Error: OpenrouterException - litellm.Timeout: Connection timed out. Timeout passed=600.0, time taken=637.606 seconds

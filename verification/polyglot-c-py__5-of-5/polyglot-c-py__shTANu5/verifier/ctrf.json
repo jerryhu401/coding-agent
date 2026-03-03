@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1772495855.2318718,
+            "stop": 1772495855.376235
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_fibonacci_polyglot",
+                "status": "passed",
+                "duration": 0.08100334000027942,
+                "start": 1772495855.2931275,
+                "stop": 1772495855.3752046,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "id": "ff1cadde-def2-4924-8d26-acda933ba60e",
+    "started_at": "2026-03-02T18:54:12.286135",
+    "finished_at": "2026-03-02T18:57:48.862553",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 0,
+        "evals": {
+            "adk_agent__terminal-bench": {
+                "n_trials": 5,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "polyglot-c-py__gHt3mp7",
+                            "polyglot-c-py__RxjkVvT",
+                            "polyglot-c-py__5yhjR7Z",
+                            "polyglot-c-py__LdV4cWo",
+                            "polyglot-c-py__shTANu5"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "id": "f666141f-7551-4d0c-a063-4b439d53e079",
+    "started_at": "2026-03-02T23:37:53.087480",
+    "finished_at": "2026-03-02T23:46:10.540606",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 0,
+        "evals": {
+            "adk_agent__terminal-bench": {
+                "n_trials": 5,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "chess-best-move__PnKrX6P",
+                            "chess-best-move__nQRZCF5",
+                            "chess-best-move__n8rKRJm",
+                            "chess-best-move__aGqaPhn",
+                            "chess-best-move__taDoVFQ"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

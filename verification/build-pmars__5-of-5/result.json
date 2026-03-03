@@ -1,0 +1,33 @@
+{
+    "id": "a6f8bacc-937a-4652-beb1-8149f8d0c65f",
+    "started_at": "2026-03-02T19:08:53.952734",
+    "finished_at": "2026-03-02T19:12:00.998139",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 0,
+        "evals": {
+            "adk_agent__terminal-bench": {
+                "n_trials": 5,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "build-pmars__dMrsBw2",
+                            "build-pmars__NesVDYj",
+                            "build-pmars__7wZf76y",
+                            "build-pmars__ohZdz3H",
+                            "build-pmars__dzk8grK"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

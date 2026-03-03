@@ -1,0 +1,96 @@
+{
+    "id": "ac9ec8aa-4a24-4054-a4f5-e59889610ed7",
+    "task_name": "constraints-scheduling",
+    "trial_name": "constraints-scheduling__7CTMYjy",
+    "trial_uri": "file:///mnt/c/Users/19498/OneDrive/Desktop/Agent%20Challenge/jobs/2026-03-02__18-50-01/constraints-scheduling__7CTMYjy",
+    "task_id": {
+        "git_url": "https://github.com/laude-institute/terminal-bench-2.git",
+        "git_commit_id": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+        "path": "constraints-scheduling"
+    },
+    "source": "terminal-bench",
+    "task_checksum": "c69027b9099bb7ac63a753b310e31cfef9cc20dce2d1c6c88956c8a854d7ac16",
+    "config": {
+        "task": {
+            "path": "constraints-scheduling",
+            "git_url": "https://github.com/laude-institute/terminal-bench-2.git",
+            "git_commit_id": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench"
+        },
+        "trial_name": "constraints-scheduling__7CTMYjy",
+        "trials_dir": "jobs/2026-03-02__18-50-01",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "agent.agent:AdkAgent",
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "443ebcd5-ca4b-4a43-b81b-14c545dc1ec7"
+    },
+    "agent_info": {
+        "name": "adk_agent",
+        "version": "0.1.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-02T23:50:03.348012Z",
+    "finished_at": "2026-03-02T23:52:38.233246Z",
+    "environment_setup": {
+        "started_at": "2026-03-02T23:50:03.350596Z",
+        "finished_at": "2026-03-02T23:50:09.388311Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-02T23:50:09.388322Z",
+        "finished_at": "2026-03-02T23:50:09.388353Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-02T23:50:09.388381Z",
+        "finished_at": "2026-03-02T23:51:47.743290Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-02T23:51:47.743408Z",
+        "finished_at": "2026-03-02T23:52:26.840483Z"
+    }
+}

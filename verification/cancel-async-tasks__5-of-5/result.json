@@ -1,0 +1,33 @@
+{
+    "id": "f3a53f32-746f-4aed-9283-b024f2323d2d",
+    "started_at": "2026-03-02T18:40:55.324625",
+    "finished_at": "2026-03-02T18:44:24.270521",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 0,
+        "evals": {
+            "adk_agent__terminal-bench": {
+                "n_trials": 5,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "cancel-async-tasks__dLFdbEB",
+                            "cancel-async-tasks__a7iGy3S",
+                            "cancel-async-tasks__S2ekTQZ",
+                            "cancel-async-tasks__GvCUth4",
+                            "cancel-async-tasks__XJp97Cs"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

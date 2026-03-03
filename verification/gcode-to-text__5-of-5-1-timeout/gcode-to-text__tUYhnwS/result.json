@@ -1,0 +1,96 @@
+{
+    "id": "498e26bf-12e5-4905-b94b-f1a8c6b03807",
+    "task_name": "gcode-to-text",
+    "trial_name": "gcode-to-text__tUYhnwS",
+    "trial_uri": "file:///mnt/c/Users/19498/OneDrive/Desktop/Agent%20Challenge/jobs/2026-03-03__00-07-47/gcode-to-text__tUYhnwS",
+    "task_id": {
+        "git_url": "https://github.com/laude-institute/terminal-bench-2.git",
+        "git_commit_id": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+        "path": "gcode-to-text"
+    },
+    "source": "terminal-bench",
+    "task_checksum": "5531de29b9b445e4cd67b66231d34cb9e7bddcf15f4c2574b7376a19f0e4c339",
+    "config": {
+        "task": {
+            "path": "gcode-to-text",
+            "git_url": "https://github.com/laude-institute/terminal-bench-2.git",
+            "git_commit_id": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench"
+        },
+        "trial_name": "gcode-to-text__tUYhnwS",
+        "trials_dir": "jobs/2026-03-03__00-07-47",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "agent.agent:AdkAgent",
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "102df44f-83b1-4bc0-9e7a-fe012abf610e"
+    },
+    "agent_info": {
+        "name": "adk_agent",
+        "version": "0.1.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-03T05:07:50.849932Z",
+    "finished_at": "2026-03-03T05:17:02.994156Z",
+    "environment_setup": {
+        "started_at": "2026-03-03T05:07:50.861736Z",
+        "finished_at": "2026-03-03T05:08:00.371229Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-03T05:08:00.371235Z",
+        "finished_at": "2026-03-03T05:08:00.371255Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-03T05:08:00.371275Z",
+        "finished_at": "2026-03-03T05:16:26.960799Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-03T05:16:26.960966Z",
+        "finished_at": "2026-03-03T05:16:51.558401Z"
+    }
+}

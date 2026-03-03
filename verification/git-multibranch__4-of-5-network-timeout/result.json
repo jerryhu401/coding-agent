@@ -1,0 +1,36 @@
+{
+    "id": "9ff656ae-79ae-42dc-8ea3-a3d18556d399",
+    "started_at": "2026-03-02T19:18:17.918430",
+    "finished_at": "2026-03-02T19:29:30.855173",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 1,
+        "evals": {
+            "adk_agent__terminal-bench": {
+                "n_trials": 4,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.8
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "git-multibranch__gJbWMKL",
+                            "git-multibranch__ZiaLQB7",
+                            "git-multibranch__utoYAmi",
+                            "git-multibranch__rhYCMHF"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "Timeout": [
+                        "git-multibranch__SGMTCUx"
+                    ]
+                }
+            }
+        }
+    }
+}

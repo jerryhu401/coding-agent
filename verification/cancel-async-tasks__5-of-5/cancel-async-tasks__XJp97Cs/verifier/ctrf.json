@@ -1,0 +1,74 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1772494951.1930423,
+            "stop": 1772494965.03935
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_run_py_file_exists",
+                "status": "passed",
+                "duration": 0.0005409060013334965,
+                "start": 1772494951.2687309,
+                "stop": 1772494951.2703047,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tasks_run_concurrently",
+                "status": "passed",
+                "duration": 3.0852520230000664,
+                "start": 1772494951.2705197,
+                "stop": 1772494954.3571532,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tasks_obey_max_concurrent",
+                "status": "passed",
+                "duration": 6.095370482999897,
+                "start": 1772494954.357626,
+                "stop": 1772494960.45465,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tasks_cancel_below_max_concurrent",
+                "status": "passed",
+                "duration": 1.5171181420000721,
+                "start": 1772494960.455345,
+                "stop": 1772494961.9737182,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tasks_cancel_at_max_concurrent",
+                "status": "passed",
+                "duration": 1.542162781001025,
+                "start": 1772494961.9739559,
+                "stop": 1772494963.5176497,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tasks_cancel_above_max_concurrent",
+                "status": "passed",
+                "duration": 1.5193420570003582,
+                "start": 1772494963.5182524,
+                "stop": 1772494965.0385635,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}
